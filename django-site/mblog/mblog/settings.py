@@ -25,7 +25,7 @@ SECRET_KEY = '0gc6$d5pi+)1riqxrl9$*z&e991#z6id_v(^i3ng*#^#c)+ash'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['192.168.1.102','localhost']
 
 
 # Application definition
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'mainsite',
 ]
 
 MIDDLEWARE = [
@@ -54,7 +55,7 @@ ROOT_URLCONF = 'mblog.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -103,9 +104,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'zh-Hant'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Taipei'
 
 USE_I18N = True
 

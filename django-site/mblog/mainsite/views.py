@@ -1,5 +1,5 @@
 from django.template.loader import get_template
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from .models import Post
 from datetime import datetime
@@ -11,3 +11,13 @@ def homepage(request):
     now = datetime.now()
     html = template.render(locals())
     return HttpResponse(html)
+def showpost(request,slug):
+    template = get_template('post.html')
+    now = datetime.now()
+    try:
+        post = Post.objects.get(slug = slug)
+        if post != None:
+            html = template.render(locals())
+            return HttpResponse(html)
+    except:
+        return redirect('/')
